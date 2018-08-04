@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:Veritaware.Toolkits.LightVM.WpfMock.Models">
+
+    <DataTemplate x:Key="CustomerDataCell" DataType="m:Order">
+        <TextBlock Text="{Binding Customer.FullName}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CustomerDataEditCell" DataType="m:Order">
+        <TextBox Text="{Binding Customer.FullName}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ProductDataCell" DataType="m:OrderDetail">
+        <TextBlock Text="{Binding Product.Name}" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ProductDataEditCell" DataType="m:OrderDetail">
+        <TextBox Text="{Binding Product.Name}" />
+    </DataTemplate>
+</ResourceDictionary>

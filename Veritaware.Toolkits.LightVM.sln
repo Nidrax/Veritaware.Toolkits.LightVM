@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veritaware.Toolkits.LightVM.Net", "Veritaware.Toolkits.LightVM.Net\Veritaware.Toolkits.LightVM.Net.csproj", "{F169843D-4ABF-4842-81BF-471AC6583BD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veritaware.Toolkits.LightVM.Std", "Veritaware.Toolkits.LightVM.Std\Veritaware.Toolkits.LightVM.Std.csproj", "{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veritaware.Toolkits.LightVM.WpfMock", "Veritaware.Toolkits.LightVM.WpfMock\Veritaware.Toolkits.LightVM.WpfMock.csproj", "{07476F2B-323B-4E50-95A0-C895171D44F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F169843D-4ABF-4842-81BF-471AC6583BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F169843D-4ABF-4842-81BF-471AC6583BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F169843D-4ABF-4842-81BF-471AC6583BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F169843D-4ABF-4842-81BF-471AC6583BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07476F2B-323B-4E50-95A0-C895171D44F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07476F2B-323B-4E50-95A0-C895171D44F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07476F2B-323B-4E50-95A0-C895171D44F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07476F2B-323B-4E50-95A0-C895171D44F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {623CE8CB-7E3E-4B35-805E-058F890AFD91}
+	EndGlobalSection
+EndGlobal
