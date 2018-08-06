@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Veritaware.Toolkits.LightVM.Std
 {
-    #region Parameterless RelayCommand
+    #region Non-generic RelayCommand
 
     public class RelayCommand : ICommand
     {
@@ -24,8 +24,9 @@ namespace Veritaware.Toolkits.LightVM.Std
         public bool CanExecute(object parameter)
             => _canExecute is null || _canExecute();
 
-        public void Execute(object parameter)
-            => _execute?.Invoke();
+        public virtual void Execute(object parameter) => Execute();
+
+        public void Execute() => _execute?.Invoke();
     }
 
     #endregion
@@ -58,8 +59,16 @@ namespace Veritaware.Toolkits.LightVM.Std
             return _canExecute(param);
         }
 
-        public void Execute(object parameter)
-            => _execute?.Invoke((T)parameter);
+        public virtual void Execute(object parameter)
+        {
+            if (!(parameter is T param))
+                throw new ArgumentException($"Expected parameter of type {typeof(T)}.");
+
+            Execute(param);
+        }
+
+
+        public void Execute(T parameter) => _execute?.Invoke(parameter);
     }
 
     #endregion
