@@ -2,7 +2,7 @@
 
 namespace Veritaware.Toolkits.LightVM.Net
 {
-    public class ViewModelBase : NotifyingObject
+    public abstract class ViewModelBase : NotifyingObject
     {
     }
 }

@@ -11,7 +11,7 @@ namespace Veritaware.Toolkits.LightVM.Net
     /// <summary>
     /// For validation purposes FluentValidation library is required.
     /// </summary>
-    public class ModelBase : NotifyingObject , INotifyDataErrorInfo
+    public abstract class ModelBase : NotifyingObject , INotifyDataErrorInfo
     {
         private IValidator Validator 
             => new AttributedValidatorFactory().GetValidator(GetType());
