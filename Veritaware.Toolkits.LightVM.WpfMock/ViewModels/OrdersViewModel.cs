@@ -31,7 +31,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.ViewModels
         public ObservableCollection<Order> Orders
         {
             get => _orders;
-            set => TryAndSet(value, ref _orders);
+            set => Set(ref _orders, value);
         }
 
         private Order _selectedOrder;
@@ -41,7 +41,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.ViewModels
             get => _selectedOrder;
             set
             {
-                TryAndSet(value, ref _selectedOrder);
+                Set(ref _selectedOrder, value);
 
                 if (value is null) return;
 
@@ -54,7 +54,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.ViewModels
         public ObservableCollection<OrderDetail> Details
         {
             get => _details;
-            set => TryAndSet(value, ref _details);
+            set => Set(ref _details, value);
         }
 
         private OrderDetail _selectedDetail;
@@ -62,7 +62,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.ViewModels
         public OrderDetail SelectedDetail
         {
             get => _selectedDetail;
-            set => TryAndSet(value, ref _selectedDetail);
+            set => Set(ref _selectedDetail, value);
         }
     }
 }

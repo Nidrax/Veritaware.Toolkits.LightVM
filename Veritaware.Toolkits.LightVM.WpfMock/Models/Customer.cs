@@ -9,7 +9,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
         public int Id
         {
             get => _id;
-            set => TryAndSet(value, ref _id);
+            set => Set(ref _id, value);
         }
 
 
@@ -20,7 +20,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
             get => _firstName;
             set
             {
-                TryAndSet(value, ref _firstName);
+                Set(ref _firstName, value);
                 RaisePropertyChanged(nameof(FullName));
             }
         }
@@ -33,7 +33,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
             get => _lastName;
             set
             {
-                TryAndSet(value, ref _lastName);
+                Set(ref _lastName, value);
                 RaisePropertyChanged(nameof(FullName));
             }
         }
@@ -47,7 +47,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
         public string Address
         {
             get => _address;
-            set => TryAndSet(value, ref _address);
+            set => Set(ref _address, value);
         }
     }
 }

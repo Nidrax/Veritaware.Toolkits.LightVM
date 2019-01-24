@@ -9,7 +9,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
         public int Id
         {
             get => _id;
-            set => TryAndSet(value, ref _id);
+            set => Set(ref _id, value);
         }
 
 
@@ -18,7 +18,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
         public Product Product
         {
             get => _product;
-            set => TryAndSet(value, ref _product);
+            set => Set(ref _product, value);
         }
 
 
@@ -27,7 +27,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.Models
         public int Quantity
         {
             get => _quantity;
-            set => TryAndSet(value, ref _quantity);
+            set => Set(ref _quantity, value);
         }
 
 

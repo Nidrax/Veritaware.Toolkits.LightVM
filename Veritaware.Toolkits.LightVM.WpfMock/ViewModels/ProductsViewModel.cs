@@ -31,7 +31,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.ViewModels
         public ObservableCollection<Product> Products
         {
             get => _products;
-            set => TryAndSet(value, ref _products);
+            set => Set(ref _products, value);
         }
 
         private Product _selectedProduct;
@@ -39,7 +39,7 @@ namespace Veritaware.Toolkits.LightVM.WpfMock.ViewModels
         public Product SelectedProduct
         {
             get => _selectedProduct;
-            set => TryAndSet(value, ref _selectedProduct);
+            set => Set(ref _selectedProduct, value);
         }
     }
 }

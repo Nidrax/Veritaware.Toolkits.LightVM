@@ -12,13 +12,7 @@ namespace Veritaware.Toolkits.LightVM.Net.Common
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public delegate void Del([CallerMemberName] string propertyName = null);
-
-        public Del RaisePropertyChanged;
-
-        protected NotifyingObject() => RaisePropertyChanged = OnPropertyChanged;
-
-        public void TryAndSet<T>(T propertyValue, ref T targetField,
+        public void Set<T>(ref T targetField, T propertyValue,
             [CallerMemberName] string propertyName = null)
         {
             if (propertyValue == null && targetField == null)
@@ -30,5 +24,31 @@ namespace Veritaware.Toolkits.LightVM.Net.Common
             targetField = propertyValue;
             OnPropertyChanged(propertyName);
         }
+
+        public void Set<T>(T propertyValue, ref T targetField,
+            [CallerMemberName] string propertyName = null)
+        {
+            Set(ref targetField, propertyValue, propertyName);
+        }
+
+        //Kept for backwards compatibility
+        public void TryAndSet<T>(T propertyValue, ref T targetField,
+            [CallerMemberName] string propertyName = null)
+        {
+            Set(ref targetField, propertyValue, propertyName);
+        }
+
+        public void TryAndSet<T>(ref T targetField, T propertyValue,
+            [CallerMemberName] string propertyName = null)
+        {
+            Set(ref targetField, propertyValue, propertyName);
+        }
+
+
+        public delegate void Del([CallerMemberName] string propertyName = null);
+
+        public Del RaisePropertyChanged;
+
+        protected NotifyingObject() => RaisePropertyChanged = OnPropertyChanged;
     }
 }
