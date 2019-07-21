@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.19.721</Version>
+    <PackageProjectUrl>https://github.com/veritaware/Veritaware.Toolkits.LightVM</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/veritaware/Veritaware.Toolkits.LightVM.git</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants />
+  </PropertyGroup>
+
+</Project>

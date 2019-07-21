@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veritaware.Toolkits.LightVM.Std", "Veritaware.Toolkits.LightVM.Std\Veritaware.Toolkits.LightVM.Std.csproj", "{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veritaware.Toolkits.LightVM", "Veritaware.Toolkits.LightVM\Veritaware.Toolkits.LightVM.csproj", "{ED000192-4F10-4B1D-9542-A5A6D6BFB20E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veritaware.Toolkits.LightVM.WpfMock", "Veritaware.Toolkits.LightVM.WpfMock\Veritaware.Toolkits.LightVM.WpfMock.csproj", "{07476F2B-323B-4E50-95A0-C895171D44F3}"
 EndProject
