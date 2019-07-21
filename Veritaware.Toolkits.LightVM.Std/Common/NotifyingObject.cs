@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Veritaware.Toolkits.LightVM.Std.Common
@@ -8,42 +9,30 @@ namespace Veritaware.Toolkits.LightVM.Std.Common
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        public void Set<T>(ref T targetField, T propertyValue,
+        public void Set<T>(ref T field, T newValue,
             [CallerMemberName] string propertyName = null)
         {
-            if (propertyValue == null && targetField == null)
+            if (EqualityComparer<T>.Default.Equals(field, newValue))
                 return;
 
-            if (propertyValue != null && propertyValue.Equals(targetField))
-                return;
-
-            targetField = propertyValue;
+            field = newValue;
             OnPropertyChanged(propertyName);
         }
 
-        public void Set<T>(T propertyValue, ref T targetField,
+        public void Set<T>(T newValue, ref T field,
             [CallerMemberName] string propertyName = null)
-        {
-            Set(ref targetField, propertyValue, propertyName);
-        }
+            => Set(ref field, newValue, propertyName);
 
         //Kept for backwards compatibility
-        public void TryAndSet<T>(T propertyValue, ref T targetField,
+        public void TryAndSet<T>(T newValue, ref T field,
             [CallerMemberName] string propertyName = null)
-        {
-            Set(ref targetField, propertyValue, propertyName);
-        }
+            => Set(ref field, newValue, propertyName);
 
-        public void TryAndSet<T>(ref T targetField, T propertyValue,
+        public void TryAndSet<T>(ref T field, T newValue,
             [CallerMemberName] string propertyName = null)
-        {
-            Set(ref targetField, propertyValue, propertyName);
-        }
-
+            => Set(ref field, newValue, propertyName);
 
         public delegate void Del([CallerMemberName] string propertyName = null);
 
