@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Veritaware.Toolkits.LightVM.Std
+namespace Veritaware.Toolkits.LightVM
 {
     #region Non-generic RelayCommand
 

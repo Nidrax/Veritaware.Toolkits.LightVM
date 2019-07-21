@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Veritaware.Toolkits.LightVM.Std.Common
+namespace Veritaware.Toolkits.LightVM.Common
 {
     public abstract class NotifyingObject : INotifyPropertyChanged
     {
