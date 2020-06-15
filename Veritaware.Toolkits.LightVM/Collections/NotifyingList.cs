@@ -5,6 +5,10 @@ namespace System.Collections.Generic
 {
     public class NotifyingList<T> : ModelBase, INotifyCollectionChanged, IList<T>
     {
+        // This must agree with Binding.IndexerName.  It is declared separately
+        // here so as to avoid a dependency on PresentationFramework.dll.
+        private const string IndexerName = "Item[]";
+
         private readonly List<T> _internalList;
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
@@ -33,7 +37,7 @@ namespace System.Collections.Generic
             for(var i = index + 1; i < _internalList.Count; ++i)
             {
                 CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(
-                    NotifyCollectionChangedAction.Move, _internalList[i], i
+                    NotifyCollectionChangedAction.Move, _internalList[i], i, i -1
                 ));
             }
         }
@@ -79,12 +83,16 @@ namespace System.Collections.Generic
         public void Add(T item)
         {
             _internalList.Add(item);
+            OnPropertyChanged(nameof(Count));
+            OnPropertyChanged(IndexerName);
             OnAdd(item);
         }
 
         public void Clear()
         {
             _internalList.Clear();
+            OnPropertyChanged(nameof(Count));
+            OnPropertyChanged(IndexerName);
             OnClear();
         }
 
@@ -95,6 +103,8 @@ namespace System.Collections.Generic
         public void Insert(int index, T item)
         {
             _internalList.Insert(index, item);
+            OnPropertyChanged(nameof(Count));
+            OnPropertyChanged(IndexerName);
             OnInsert(item, index);
         }
 
@@ -103,6 +113,8 @@ namespace System.Collections.Generic
             var index = _internalList.IndexOf(item);
             if(_internalList.Remove(item))
             {
+                OnPropertyChanged(nameof(Count));
+                OnPropertyChanged(IndexerName);
                 OnRemove(item, index);
                 return true;
             }
@@ -113,6 +125,8 @@ namespace System.Collections.Generic
         {
             var item = _internalList[index];
             _internalList.RemoveAt(index);
+            OnPropertyChanged(nameof(Count));
+            OnPropertyChanged(IndexerName);
             OnRemove(item, index);
         }
 
