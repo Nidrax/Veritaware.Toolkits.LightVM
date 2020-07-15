@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bogus, Version=29.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.29.0.2\lib\net40\Bogus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.WPF.1.0.1\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
@@ -67,10 +70,12 @@
     </Compile>
     <Compile Include="Behaviors\DataGridBehavior.cs" />
     <Compile Include="IServices\ICustomersService.cs" />
+    <Compile Include="IServices\INamesService.cs" />
     <Compile Include="IServices\IOrderDetailsService.cs" />
     <Compile Include="IServices\IOrdersService.cs" />
     <Compile Include="IServices\IProductsService.cs" />
     <Compile Include="MockServices\MockCustomersService.cs" />
+    <Compile Include="MockServices\MockNamesService.cs" />
     <Compile Include="MockServices\MockOrderDetailsService.cs" />
     <Compile Include="MockServices\MockOrdersService.cs" />
     <Compile Include="MockServices\MockProductsService.cs" />
@@ -80,10 +85,14 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
+    <Compile Include="ViewModels\ObservableListViewModel.cs" />
     <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="Views\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ObservableListView.xaml.cs">
+      <DependentUpon>ObservableListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdersView.xaml.cs">
       <DependentUpon>OrdersView.xaml</DependentUpon>
@@ -122,13 +131,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Veritaware.Toolkits.LightVM\Veritaware.Toolkits.LightVM.csproj">
+      <Project>{ed000192-4f10-4b1d-9542-a5a6d6bfb20e}</Project>
+      <Name>Veritaware.Toolkits.LightVM</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Themes\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ObservableListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,12 +162,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Veritaware.Toolkits.LightVM.Net\Veritaware.Toolkits.LightVM.Net.csproj">
-      <Project>{f169843d-4abf-4842-81bf-471ac6583bd0}</Project>
-      <Name>Veritaware.Toolkits.LightVM.Net</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
