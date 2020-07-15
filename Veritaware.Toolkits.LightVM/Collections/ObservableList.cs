@@ -6,7 +6,7 @@
 
     using Veritaware.Toolkits.LightVM.Common;
 
-    public class NotifyingList<T> : NotifyingObject, IList<T>, IList, IReadOnlyList<T>, INotifyCollectionChanged
+    public class ObservableList<T> : NotifyingObject, IList<T>, IList, IReadOnlyList<T>, INotifyCollectionChanged
     {
         // This must agree with Binding.IndexerName.  It is declared separately
         // here so as to avoid a dependency on PresentationFramework.dll.
@@ -73,17 +73,17 @@
             ));
         }
 
-        public NotifyingList()
+        public ObservableList()
         {
             _internalList = new List<T>();
         }
 
-        public NotifyingList(int capacity)
+        public ObservableList(int capacity)
         {
             _internalList = new List<T>(capacity);
         }
 
-        public NotifyingList(IEnumerable<T> collection)
+        public ObservableList(IEnumerable<T> collection)
         {
             _internalList = new List<T>(collection);
         }
@@ -252,7 +252,7 @@
 
         public List<T> GetInternalList() => _internalList;
 
-        public NotifyingList<T> GetRange(int index, int count) => new NotifyingList<T>(_internalList.GetRange(index, count));
+        public ObservableList<T> GetRange(int index, int count) => new ObservableList<T>(_internalList.GetRange(index, count));
 
         public int IndexOf(T item) => _internalList.IndexOf(item);
         public int IndexOf(T item, int index) => _internalList.IndexOf(item, index);
