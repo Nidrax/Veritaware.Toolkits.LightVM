@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Veritaware.Toolkits.LightVM.Net;
+using Veritaware.Toolkits.LightVM;
 
 namespace Veritaware.Toolkits.LightVM.WpfMock.Models
 {

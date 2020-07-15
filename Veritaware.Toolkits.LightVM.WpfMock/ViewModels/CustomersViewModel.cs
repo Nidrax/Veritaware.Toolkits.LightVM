@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using Veritaware.Toolkits.LightVM.Net;
+using Veritaware.Toolkits.LightVM;
 using Veritaware.Toolkits.LightVM.WpfMock.IServices;
 using Veritaware.Toolkits.LightVM.WpfMock.MockServices;
 using Veritaware.Toolkits.LightVM.WpfMock.Models;
