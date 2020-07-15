@@ -36,7 +36,7 @@
 
         protected virtual void OnAdd(T item)
             => CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(
-                NotifyCollectionChangedAction.Add, item, _internalList.Count
+                NotifyCollectionChangedAction.Add, item, _internalList.Count - 1
             ));
 
         protected virtual void OnClear()
@@ -45,18 +45,9 @@
             ));
 
         protected virtual void OnInsert(T item, int index)
-        {
-            CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(
+            => CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(
                 NotifyCollectionChangedAction.Add, item, index
             ));
-
-            for(var i = index + 1; i < _internalList.Count; ++i)
-            {
-                CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(
-                    NotifyCollectionChangedAction.Move, _internalList[i], i, i -1
-                ));
-            }
-        }
 
         protected virtual void OnRemove(T item, int index)
             => CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(
@@ -352,26 +343,9 @@
         public void Reverse() => Reverse(0, Count);
         public void Reverse(int index, int count)
         {
-            if(index < 0)
-                throw new ArgumentOutOfRangeException(nameof(index), "Argument can't be a negative number.");
-            if(count < 0)
-                throw new ArgumentOutOfRangeException(nameof(count), "Argument can't be a negative number.");
-            if(Count - index < count)
-                throw new IndexOutOfRangeException();
-            Contract.EndContractBlock();
-
-            var i = index;
-            var j = index + count - 1;
-
-            while(i < j)
-            {
-                T temp = _internalList[i];
-                _internalList[i] = _internalList[j];
-                _internalList[j] = temp;
-                OnSwap(i, j);
-                i++;
-                j--;
-            }
+            var oldList = new List<T>(_internalList);
+            _internalList.Reverse(index, count);
+            CheckIndexes(oldList, 0, Count);
         }
 
         public void Sort() => Sort(0, Count, null);
