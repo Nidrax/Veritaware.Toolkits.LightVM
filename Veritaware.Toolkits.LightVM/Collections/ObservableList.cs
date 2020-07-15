@@ -8,8 +8,8 @@
 
     public class ObservableList<T> : NotifyingObject, IList<T>, IList, IReadOnlyList<T>, INotifyCollectionChanged
     {
-        // This must agree with Binding.IndexerName.  It is declared separately
-        // here so as to avoid a dependency on PresentationFramework.dll.
+        // The name must be consistent with Binding.IndexerName
+        // It is declared here to avoid dependency on PresentationFramework.dll
         private const string IndexerName = "Item[]";
         private readonly List<T> _internalList;
         private object _syncRoot;
